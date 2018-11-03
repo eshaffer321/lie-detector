@@ -1,8 +1,14 @@
-window.bears = {}
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  window.bears[request.url] = request.count
-})
+/** Run once when first installed */
+chrome.runtime.onInstalled.addListener(function () {
+    console.log('Successfully Installed.');
+});
 
-chrome.browserAction.onClicked.addListener(function (tab) {
-  chrome.tabs.create({url: 'popup.html'})
-})
+/** Incoming message from the content.js */
+chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+        console.log(sender.tab ?
+            "from a content script:" + sender.tab.url :
+            "from the extension");
+        if (request.greeting == "hello")
+            sendResponse({farewell: "goodbye"});
+    });
