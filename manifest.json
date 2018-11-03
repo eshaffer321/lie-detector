@@ -1,24 +1,18 @@
 {
-  "name": "Chrome Extension Lie Detector",
+  "name": "bear",
   "version": "1.0",
-  "description": "Can you trust this news source?",
   "manifest_version": 2,
-
-
-  "page_action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "images/img16.png",
-      "32": "images/img32.png",
-      "48": "images/img48.png",
-      "128": "images/img128.png"
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
     }
+  ],
+  "browser_action": {
+    "default_title": "Bear"
   },
-  "icons": {
-    "16": "images/img16.png",
-    "32": "images/img32.png",
-    "48": "images/img48.png",
-    "128": "images/img128.png"
-  }
-
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": ["tabs"]
 }
