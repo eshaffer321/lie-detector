@@ -15,6 +15,19 @@ chrome.runtime.onInstalled.addListener(function () {
     });
 });
 
+chrome.tabs.executeScript(tab.id, {
+    file: "jquery.js",
+    allFrames: true,
+    runAt: "document_idle"
+});
+
+chrome.tabs.executeScript(tab.id, {
+    file: "script.js",
+    allFrames: true,
+    runAt: "document_idle"
+});
+
+
 /** Incoming message from the content.js */
 chrome.runtime.onMessage.addListener(
     function (dataPackage, sender) {
