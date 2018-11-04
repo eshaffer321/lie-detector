@@ -1,37 +1,73 @@
 /** Run once when first installed */
 chrome.runtime.onInstalled.addListener(function () {
     console.log('Successfully Installed.');
+    chrome.storage.sync.set({color: '#3aa757'}, function () {
+        console.log('The color is green.');
+    });
+    chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
+        chrome.declarativeContent.onPageChanged.addRules([{
+            conditions: [new chrome.declarativeContent.PageStateMatcher({
+                pageUrl: {hostEquals: 'developer.chrome.com'},
+            })
+            ],
+            actions: [new chrome.declarativeContent.ShowPageAction()]
+        }]);
+    });
 });
 
 /** Incoming message from the content.js */
 chrome.runtime.onMessage.addListener(
-    function (request, sender) {
-        console.log(sender.tab ?
-            "from a content script:" + sender.tab.url :
-            "from the extension");
-        console.log(JSON.parse(request));
-        console.log(biasCounts(JSON.parse(request)));
+    function (dataPackage, sender) {
+        console.log('DOING WELL');
+        sites = dataPackage.d1;
+        x = biasCounts(JSON.parse(sites));
+
+        articleText = dataPackage.d2;
+
+        // Create a new request to backend
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://ec2-34-201-117-49.compute-1.amazonaws.com:3000", false);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send(articleText);
+        let input = xhr.responseText;
+
+        //console.log(emotiveLanguage(parseFloat(JSON.parse(input).mag)/articleText.length));
+        a = articleText.split(" ").length;
+        b = parseFloat(JSON.parse(input).mag);
+
+
+        y = emotiveLanguage(b / a);
+
+        z = x + y;
+        chrome.runtime.sendMessage(JSON.stringify(z), function (response) {
+        });
+
     });
+
 
 var xhr = new XMLHttpRequest();
 
 xhr.open("GET", "https://raw.githubusercontent.com/BigMcLargeHuge/opensources/master/sources/sources.json", false);
 xhr.send();
-
 var result = xhr.responseText;
+
+function emotiveLanguage(ratio) {
+
+    return 50 * (1 - ((ratio - .1) / .1));
+}
+
 var biasCount = 0;
 
-function biasCounts (sites) {
-biasCount = -1;
-for(let i = 0; i<sites.length; i++){
-    if(result.includes(sites[i])){
-        biasCount++;
-        console.log(sites[i]);
+function biasCounts(sites) {
+    biasCount = -1;
+    for (let i = 0; i < sites.length; i++) {
+        if (result.includes(sites[i]) && sites[i] != "www.bbc.com") {
+            biasCount++;
+            console.log(sites[i]);
+        }
     }
+    if (biasCount == -1) {
+        biasCount++;
+    }
+    return 50 - (biasCount * 10);
 }
-if(biasCount == -1){
-    biasCount++;
-}
-return biasCount;
-};
-// console.log(result);
