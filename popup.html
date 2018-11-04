@@ -2,14 +2,16 @@
 
 <head>
     <meta charset="utf-8">
-    <!-- <meta name="viewport" content="width-device-width", initial-scale="1.0"> -->
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Detector Launcher</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script scr="popup.js"></script>
 
     <style>
         html,
@@ -95,56 +97,16 @@
         }
     </style>
 
+    <script src="popup.js"></script>
 </head>
 
 <body>
-
-
     <div class="modal-header">
         <h1 class="logo">
             <img src="images/logo.png" alt="logo" class="logo-icon"> Detector Launcher
             <span class="version">(1.0.0)</span>
         </h1>
     </div>
-    <div class="modal-content">
-        <form>
-            <div class="form-group">
-                <label for="InputWebsite">Website Detection</label>
-                <input type="text" class="form-control" id="urlInput" aria-describedby="url" placeholder="Enter Website of the Article">
-                <small id="website" class="form-text text-muted"></small>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
-
-        <div class="search">
-            <form action="/" id="body-search" class="searchField default-search page-search">
-                <div class="material-input">
-                    <div class="material-input-wrapper">
-                        <input placeholder="Search Keywords or URLs" type="text" name="s" id="header-search" value="">
-                    </div>
-                </div>
-                <button id="snopes-submit" type="submit" class="submit"><i class="fa fa-search"></i></button>
-            </form>
-            <a href="#" class="mobile-search-close" style="display: none"><i class="fa fa-close"></i></a>
-        </div>
-
-        <input class="w7Nvcd ktf std YbqTTb iZlBGNRUvaa0-YQV3zrMHrCg" 
-        placeholder="Snopes Search" title="Results from snopes.com" 
-        id="nqsbq" autocomplete="off" maxlength="2048" 
-        size="40" type="text" jsaction="input:r.N8eazWJdA9Q" 
-        data-rtid="iZlBGNRUvaa0" jsl="$x 1;">
-
-
-
-        <div class="donation">
-            <a href="https://www.patreon.com/user?u=14707516" target="_blank">
-                <button type="submit" class="btn btn-success">Donation</button>
-            </a>
-        </div>
-    </div>
-
-
     <div class="modal-icons">
         <div class="flex-container">
             <div class="flex">
@@ -174,15 +136,19 @@
             </div>
         </div>
     </div>
-    <div class="container">
+
+    <div class="chart" data-percent="73">73%</div>
+
+
+    <button onclick="clickHandler(this)">
+        Click for awesomeness!
+    </button>
+
+    <div calss="container">
         <div class="box">
-            <div class="chart" data-percent="73">73%</div>
+            <div class="chart" data-percent="73" data-scale-color="#ffb400">73%</div>
         </div>
     </div>
-    
-    <script src="jquery-3.3.1.min.js"></script>
-    <script src="jquery.easypiechart.min.js"></script>
-    <script src="popup.js"></script>
 </body>
 
 </html>

@@ -1,21 +1,33 @@
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-      console.log(sender.tab ?
-                  "from a content script:" + sender.tab.url :
-                  "from the extension");
-      if (request.greeting == "hello")
-        sendResponse({farewell: "goodbye"});
-    
+function awesome() {
+    // Do something awesome!
+}
 
-    $(document).ready(function() {
-        $(function() {
-            $('.chart').easyPieChart({
-                //your options goes here
-            });
-        });
-    });
-      
-      function myFunction() {
-        alert('hi');
-      }
-    });
+function totallyAwesome() {
+    // do something TOTALLY awesome!
+}
+
+function awesomeTask() {
+    awesome();
+    totallyAwesome();
+}
+
+function clickHandler(e) {
+    setTimeout(awesomeTask, 1000);
+}
+
+function main() {
+    console.log("asdf");  
+    var element = document.querySelector('.chart');
+    new EasyPieChart(element, {
+        // your options goes here
+    });  
+}
+
+// Add event listeners once the DOM has fully loaded by listening for the
+// `DOMContentLoaded` event on the document, and adding your listeners to
+// specific elements when it triggers.
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('button').addEventListener('click', clickHandler);
+    main();
+
+});
