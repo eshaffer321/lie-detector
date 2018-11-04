@@ -1,32 +1,7 @@
 /** Run once when first installed */
 chrome.runtime.onInstalled.addListener(function () {
     console.log('Successfully Installed.');
-    chrome.storage.sync.set({color: '#3aa757'}, function () {
-        console.log('The color is green.');
-    });
-    chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
-        chrome.declarativeContent.onPageChanged.addRules([{
-            conditions: [new chrome.declarativeContent.PageStateMatcher({
-                pageUrl: {hostEquals: 'developer.chrome.com'},
-            })
-            ],
-            actions: [new chrome.declarativeContent.ShowPageAction()]
-        }]);
-    });
 });
-
-chrome.tabs.executeScript(tab.id, {
-    file: "jquery.js",
-    allFrames: true,
-    runAt: "document_idle"
-});
-
-chrome.tabs.executeScript(tab.id, {
-    file: "script.js",
-    allFrames: true,
-    runAt: "document_idle"
-});
-
 
 /** Incoming message from the content.js */
 chrome.runtime.onMessage.addListener(
@@ -57,15 +32,14 @@ chrome.runtime.onMessage.addListener(
 
     });
 
-
+/** Make a request to get the opensources json file */
 var xhr = new XMLHttpRequest();
-
 xhr.open("GET", "https://raw.githubusercontent.com/BigMcLargeHuge/opensources/master/sources/sources.json", false);
 xhr.send();
 var result = xhr.responseText;
 
-function emotiveLanguage(ratio) {
 
+function emotiveLanguage(ratio) {
     return 50 * (1 - ((ratio - .1) / .1));
 }
 
