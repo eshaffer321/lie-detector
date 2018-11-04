@@ -22,7 +22,8 @@
         "/src/popup/popup.js"
       ],
       "css": [
-        "vendor/bootstrap/bootstrap.min.css"
+        "vendor/bootstrap/bootstrap.min.css",
+        "vendor/animate/animate.css"
       ]
     }
   ],

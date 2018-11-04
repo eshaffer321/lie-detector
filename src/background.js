@@ -1,14 +1,15 @@
 /** Run once when first installed */
 chrome.runtime.onInstalled.addListener(function () {
-    console.log('Successfully Installed.');
+
 });
 
 /** Incoming message from the content.js */
 chrome.runtime.onMessage.addListener(
     function (dataPackage, sender) {
-        console.log('DOING WELL');
         sites = dataPackage.d1;
-        x = biasCounts(JSON.parse(sites));
+        openSource = biasCounts(JSON.parse(sites));
+
+
 
         articleText = dataPackage.d2;
 
@@ -22,11 +23,18 @@ chrome.runtime.onMessage.addListener(
         //console.log(emotiveLanguage(parseFloat(JSON.parse(input).mag)/articleText.length));
         a = articleText.split(" ").length;
         b = parseFloat(JSON.parse(input).mag);
+        x = b/a;
+        if(b/a < .01){
+            x = .01;
+        }
+        if (b/a > .02){
+            x = .02;
+        }
 
+        y = emotiveLanguage(x);
+        console.log(y + 'emotive' + openSource + 'BIAS')
 
-        y = emotiveLanguage(b / a);
-
-        z = x + y;
+        z = openSource + y;
         chrome.runtime.sendMessage(JSON.stringify(z), function (response) {
         });
 
@@ -40,7 +48,7 @@ var result = xhr.responseText;
 
 
 function emotiveLanguage(ratio) {
-    return 50 * (1 - ((ratio - .1) / .1));
+    return 50 * (1 - ((ratio - .01) / .01));
 }
 
 var biasCount = 0;
@@ -50,11 +58,10 @@ function biasCounts(sites) {
     for (let i = 0; i < sites.length; i++) {
         if (result.includes(sites[i]) && sites[i] != "www.bbc.com") {
             biasCount++;
-            console.log(sites[i]);
         }
     }
-    if (biasCount == -1) {
-        biasCount++;
+    if (biasCount > -1) {
+        return 0;
     }
-    return 50 - (biasCount * 10);
+    return 50;
 }

@@ -1,0 +1,33 @@
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.main-container {
+  min-width: 180px;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-left: {
+  text-align: left;
+}
+
+#pat {
+  transition: all ease-in 0.3s;
+}
+
+
+#pat:hover {
+  transform: translateY(-2px);
+}
