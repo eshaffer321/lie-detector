@@ -18,12 +18,10 @@
     "content_scripts": [
         {
             "js": [
-                "background.js",
+                "jquery-3.3.1.min.js",
                 "js/bootstrap.min.js",
-                "popup.js",
-                "jquery.easypiechart.js",
-                "easypiechart.min.js",
-                "jquery.easypiechart.min.js"
+                "jquery.easypiechart.min.js",
+                "popup.js"
             ],
             "css": [
                 "css/bootstrap.min.css"
