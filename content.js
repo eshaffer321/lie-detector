@@ -1,7 +1,13 @@
 console.log('In a content script');
+let message = '';
 
-
+let articleText = document.querySelector('body');
 let ref = document.querySelectorAll('a');
+
+if('innerText' in articleText){
+     message = articleText.innerText;
+}
+
 
 const getLocation = function (href) {
     const l = document.createElement('a');
@@ -11,14 +17,18 @@ const getLocation = function (href) {
 var cat = new Set();
 
 for (let i = 0; i < ref.length; i++) {
-    //console.log(ref[i]);
     cat.add(getLocation(ref[i].href));
 }
 
+var dataPackage = {
+    "d1" : JSON.stringify(Array.from(cat)),
+    "d2" : message
+};
 
-chrome.runtime.sendMessage(JSON.stringify(Array.from(cat)), function(response){
-
+chrome.runtime.sendMessage(dataPackage,  function(response){
 });
+
+
 
 
 

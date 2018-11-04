@@ -3,6 +3,7 @@
   "version": "1.0",
   "description": "Can you trust this news source?",
   "manifest_version": 2,
+  "options_page": "options.html",
   "web_accessible_resources": [
     "data/info.json"
   ],
@@ -20,7 +21,8 @@
     "https://raw.githubusercontent.com/BigMcLargeHuge/opensources/master/sources/sources.json",
     "activeTab",
     "declarativeContent",
-    "storage"
+    "storage",
+    "http://ec2-34-201-117-49.compute-1.amazonaws.com"
   ],
   "page_action": {
     "default_popup": "popup.html",
@@ -38,3 +40,5 @@
     "128": "/resources/images/img128.png"
   }
 }
+
+
