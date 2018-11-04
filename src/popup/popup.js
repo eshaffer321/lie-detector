@@ -4,11 +4,19 @@ chrome.runtime.onMessage.addListener(function (z, sender) {
     awesome(JSON.parse(z));
 });
 
-
-
 function awesome(z) {
-    // Do something awesome!
     $('.chart').data('easyPieChart').update(z);
+    if (z > 80) {
+        $('.chart').data('easyPieChart').options.barColor = '#3BC865';
+    } else if (z > 60) {
+        $('.chart').data('easyPieChart').options.barColor = '#CEEA44';
+    } else if (z > 30) {
+        $('.chart').data('easyPieChart').options.barColor = '#F1B95A';
+    } else if (z > 30) {
+        $('.chart').data('easyPieChart').options.barColor = '#FFFFFF';
+    }
+    z = Math.floor(z);
+    $("#valuee").text(z+"%");
 }
 
 function clickHandler(e) {
@@ -33,7 +41,7 @@ $(function () {
         animate: 2500,
         lineCap: 'circle',
         display: true,
-        text: 'datad',
+        text: '%',
     })
 });
 
@@ -42,7 +50,7 @@ $(document).ready(function () {
     var link = document.getElementById("pat");
     link.addEventListener("click", function () {
         chrome.tabs.getSelected(null, function (tab) {
-            chrome.tabs.update(tab.id, {url: 'https://www.patreon.com/user?u=14707516'}, function() {
+            chrome.tabs.update(tab.id, { url: 'https://www.patreon.com/user?u=14707516' }, function () {
 
             });
         });

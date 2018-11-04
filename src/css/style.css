@@ -1,0 +1,132 @@
+html,
+    body {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 15px;
+      margin: 0;
+      min-height: 180px;
+      padding: 0;
+      max-width: 384px;
+      background-color:#fff;
+      display:block;
+      overflow:scroll;
+
+    }
+
+    h1, .domain {
+      font-family: 'Menlo', monospace;
+      font-size: 20px;
+      font-weight: 400;
+      margin-left: 10px;
+      color: #2f5876;
+    }
+
+    a:link,
+    a:visited {
+      color: #000;
+      outline: 0;
+      text-decoration: none;
+
+    }
+
+    img {
+      width: 30px;
+    }
+
+    .modal-header {
+      align-items: center;
+      border-bottom: 0.5px solid #dadada;
+    }
+
+    .modal-content {
+      padding: 0 22px;
+    }
+
+    .modal-icons {
+      border-top: 0.5px solid #dadada;
+      height: 50px;
+      width: 100%;
+    }
+
+    .logo {
+        font-size:30px;
+      padding: 16px;
+
+    }
+
+    .logo-icon {
+      vertical-align: text-bottom;
+      margin-right:0px;
+      font-size:25px;
+    }
+
+    .version {
+      color: #dadada;
+      font-size: 14px;
+    }
+
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 22px;
+    }
+
+    .flex {
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+      width: 120px;
+    }
+
+    .flex:hover {
+      opacity: 0.4;
+    }
+
+    .flex .fa {
+      font-size: 40px;
+      color: #2f5876;
+    }
+
+    .container{
+      position:absolute;
+      top : 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width:800px;
+    }
+    .continer .box{
+      text-align: center;
+      color:#fff;
+      text-transform: uppercase;
+    }
+    .container .box{
+      width: 10%;
+      float :left;
+    }
+    .container .box .chart{
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 ;
+      text-align: center;
+      line-height:100px;
+    }
+    .container .box canvas{
+        position:absolute;
+        top: 100;
+        left: 0;
+        font-size:15px;
+        float: left;
+    }
+    .domain{
+      margin-top:10px;
+      font-size: 20px;
+    }
+    .button{
+      margin-left:10px;
+    }
+    .row{
+        margin-right:20px;
+    }
