@@ -1,120 +1,151 @@
-<html> 
-    <head>
-        <meta charset="utf-8">
-        <!-- <meta name="viewport" content="width-device-width", initial-scale="1.0"> -->
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Detector Launcher</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
-        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<html>
 
-        <style>
+<head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width-device-width", initial-scale="1.0"> -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detector Launcher</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 
-        html, body {
+    <style>
+        html,
+        body {
             font-family: 'Open Sans', sans-serif;
             font-size: 14px;
-            margin:0;
-            min-height:180px;
-            padding:0;
-            width:384px;
+            margin: 0;
+            min-height: 180px;
+            padding: 0;
+            width: 384px;
         }
-        h1{
+
+        h1 {
             font-family: 'Menlo', monospace;
-            font-size:22px;
-            font-weight:400;
-            margin:0;
+            font-size: 22px;
+            font-weight: 400;
+            margin: 0;
             color: #2f5876;
-            }
-        a:link, a:visited{
+        }
+
+        a:link,
+        a:visited {
             color: #000;
             outline: 0;
             text-decoration: none;
 
         }
-        img{
+
+        img {
             width: 30px;
 
         }
-        .modal-header{
-            align-items:center;
-            border-bottom:0.5px solid #dadada;
-        }
-        .modal-content{
-            padding: 0 22px;
-        }
-        .modal-icons{
-            border-top : 0.5px solid #dadada;
-            height:50px;
-            width:100%;
+
+        .modal-header {
+            align-items: center;
+            border-bottom: 0.5px solid #dadada;
         }
 
-        .logo{
+        .modal-content {
+            padding: 0 22px;
+        }
+
+        .modal-icons {
+            border-top: 0.5px solid #dadada;
+            height: 50px;
+            width: 100%;
+        }
+
+        .logo {
             padding: 16px;
 
         }
-        .logo-icon{
+
+        .logo-icon {
             vertical-align: text-bottom;
-            margin-right:12px;
+            margin-right: 12px;
         }
 
-    .version{
-        color:#444;
-        font-size:18px;
-    }
-    .flex-container{
-        display: flex;
-        justify-content: space-between;
-        padding : 10px 22px;
-    }
-    .flex{
-        opacity: 1;
-        transition:opacity 0.2s ease-in-out;
-        width: 120px;
-    }
+        .version {
+            color: #444;
+            font-size: 18px;
+        }
 
-    .flex:hover{
-        opacity:0.4;
-    }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 22px;
+        }
 
-    .flex .fa {
-        font-size:40px;
-        color:#2f5876;
-    }
- 
+        .flex {
+            opacity: 1;
+            transition: opacity 0.2s ease-in-out;
+            width: 120px;
+        }
+
+        .flex:hover {
+            opacity: 0.4;
+        }
+
+        .flex .fa {
+            font-size: 40px;
+            color: #2f5876;
+        }
     </style>
 
-    </head>
+</head>
 
 <body>
 
-   
+
     <div class="modal-header">
         <h1 class="logo">
-            <img src="images/logo.png" alt="logo" class="logo-icon"> Detector 
-            Launcher <span class="version">(1.0.0)</span>
+            <img src="images/logo.png" alt="logo" class="logo-icon"> Detector Launcher
+            <span class="version">(1.0.0)</span>
         </h1>
     </div>
     <div class="modal-content">
         <form>
-                <div class="form-group">
-                    <label for="InputWebsite">Website Detection</label>
-                    <input type="text" class="form-control" id="urlInput" aria-describedby="url" placeholder="Enter Webstie Domain">
-                    <small id="website" class="form-text text-muted"></small>
+            <div class="form-group">
+                <label for="InputWebsite">Website Detection</label>
+                <input type="text" class="form-control" id="urlInput" aria-describedby="url" placeholder="Enter Website of the Article">
+                <small id="website" class="form-text text-muted"></small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+
+        <div class="search">
+            <form action="/" id="body-search" class="searchField default-search page-search">
+                <div class="material-input">
+                    <div class="material-input-wrapper">
+                        <input placeholder="Search Keywords or URLs" type="text" name="s" id="header-search" value="">
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                <button id="snopes-submit" type="submit" class="submit"><i class="fa fa-search"></i></button>
+            </form>
+            <a href="#" class="mobile-search-close" style="display: none"><i class="fa fa-close"></i></a>
+        </div>
+
+        <input class="w7Nvcd ktf std YbqTTb iZlBGNRUvaa0-YQV3zrMHrCg" 
+        placeholder="Snopes Search" title="Results from snopes.com" 
+        id="nqsbq" autocomplete="off" maxlength="2048" 
+        size="40" type="text" jsaction="input:r.N8eazWJdA9Q" 
+        data-rtid="iZlBGNRUvaa0" jsl="$x 1;">
 
 
-                
-<div class="donation">
-        <a href="https://www.patreon.com/user?u=14707516" target="_blank">
-            <button type="submit" class="btn btn-success">Donation</button>
-        </a>
+
+        <div class="donation">
+            <a href="https://www.patreon.com/user?u=14707516" target="_blank">
+                <button type="submit" class="btn btn-success">Donation</button>
+            </a>
+        </div>
     </div>
-</div>
 
 
-    <div class="modal-icons"> 
+    <div class="modal-icons">
         <div class="flex-container">
             <div class="flex">
                 <a href="https://www.csumb.edu" target="_blank">
@@ -143,19 +174,15 @@
             </div>
         </div>
     </div>
-    <div class="container" >
+    <div class="container">
         <div class="box">
-            <div class="chart" data-percent="73">73%</div>       
+            <div class="chart" data-percent="73">73%</div>
         </div>
     </div>
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="/path/to/jquery.easy-pie-chart.js"></script>
-        <script src="popup.js"></script>
-        <script src="jquery.easypiechart.mis.js" ></script>    
-        <script src="jquery-3.3.1.min.js"></script>
-
-        
+    
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="jquery.easypiechart.min.js"></script>
+    <script src="popup.js"></script>
 </body>
 
-    </html>
+</html>

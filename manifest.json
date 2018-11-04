@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Detector",
   "version": "1.0.0",
-  "description": "Launcher",
+  "description": "Fake News Detector Launcher",
   
   "icons": {
   "16": "images/icon_16.png",
@@ -10,11 +10,19 @@
   "48": "images/icon_48.png",
   "128": "images/icon_128.png"
 },
+"background": [{
+  
+    "scripts": ["jquery-3.3.1.min.js", "background.js","js/bootstrap.min.js","popup.js"],
+  
+    "persistent": false
+  
+}],
 
   "content_scripts": [
     {
       "matches": ["http://*.nytimes.com/*"],
-      "js": ["jquery.easypiechart.min.js", "jquery-3.3.1.min.js", "popup.js", "js/bootstrap.min.js", "popup.js", "options.js", "background.js"],
+      "scripts": ["jquery.easypiechart.min.js", "jquery-3.3.1.min.js", "popup.js", 
+         "options.js","jquery.easypiechart.js"],
       "css":[ "css/bootstrap.min.css"]
       
     }
@@ -24,6 +32,8 @@
     "default_icon":"icon.png",
     "default_popup":"popup.html"
   },
-  
+
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+
   "permissions": ["contextMenus", "storage", "activeTab"]
 }
