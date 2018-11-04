@@ -1,8 +1,5 @@
 console.log('In a content script');
 
-chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-    console.log(response.farewell);
-});
 
 let ref = document.querySelectorAll('a');
 
@@ -15,8 +12,13 @@ var cat = new Set();
 
 for (let i = 0; i < ref.length; i++) {
     //console.log(ref[i]);
-    console.log(getLocation(ref[i].href));
     cat.add(getLocation(ref[i].href));
 }
 
-console.log(cat);
+
+chrome.runtime.sendMessage(JSON.stringify(Array.from(cat)), function(response){
+
+});
+
+
+

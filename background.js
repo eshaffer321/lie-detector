@@ -5,12 +5,12 @@ chrome.runtime.onInstalled.addListener(function () {
 
 /** Incoming message from the content.js */
 chrome.runtime.onMessage.addListener(
-    function (request, sender, sendResponse) {
+    function (request, sender) {
         console.log(sender.tab ?
             "from a content script:" + sender.tab.url :
             "from the extension");
-        if (request.greeting == "hello")
-            sendResponse({farewell: "goodbye"});
+        console.log(JSON.parse(request));
+        console.log(biasCounts(JSON.parse(request)));
     });
 
 var xhr = new XMLHttpRequest();
@@ -19,5 +19,16 @@ xhr.open("GET", "https://raw.githubusercontent.com/BigMcLargeHuge/opensources/ma
 xhr.send();
 
 var result = xhr.responseText;
+var biasCount = 0;
 
-console.log(result);
+function biasCounts (sites) {
+biasCount = 0;
+for(let i = 0; i<sites.length; i++){
+    if(result.includes(sites[i])){
+        biasCount++;
+        console.log(sites[i]);
+    }
+}
+return biasCount;
+};
+// console.log(result);
