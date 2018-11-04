@@ -3,20 +3,37 @@
   "version": "1.0",
   "description": "Can you trust this news source?",
   "manifest_version": 2,
-  "options_page": "options.html",
-  "web_accessible_resources": [
-    "data/info.json"
-  ],
+  "icons": {
+    "16": "/resources/images/icon_16.png",
+    "32": "/resources/images/icon_32.png",
+    "48": "/resources/images/icon_48.png",
+    "128": "/resources/images/icon_128.png"
+  },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["content.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js",
+        "jquery-3.3.1.min.js",
+        "js/bootstrap.min.js",
+        "jquery.easypiechart.min.js",
+        "popup.js"
+      ],
+      "css": [
+        "css/bootstrap.min.css"
+      ]
     }
   ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "jquery-3.3.1.min.js",
+      "background.js"
+    ],
     "persistent": false
   },
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
   "permissions": [
     "https://raw.githubusercontent.com/BigMcLargeHuge/opensources/master/sources/sources.json",
     "activeTab",
@@ -24,21 +41,8 @@
     "storage",
     "http://ec2-34-201-117-49.compute-1.amazonaws.com"
   ],
-  "page_action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "/resources/images/img16.png",
-      "32": "/resources/images/img32.png",
-      "48": "/resources/images/img48.png",
-      "128": "/resources/images/img128.png"
-    }
-  },
-  "icons": {
-    "16": "/resources/images/img16.png",
-    "32": "/resources/images/img32.png",
-    "48": "/resources/images/img48.png",
-    "128": "/resources/images/img128.png"
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
   }
 }
-
-

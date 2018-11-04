@@ -1,16 +1,227 @@
-<!DOCTYPE html>
 <html>
+
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Detector Launcher</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
   <style>
-    button {
-      height: 30px;
+    html,
+    body {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 15px;
+      margin: 0;
+      min-height: 180px;
+      padding: 0;
+      width: 384px;
+      background-color:#fff;
+    }
+
+    h1, .domain {
+      font-family: 'Menlo', monospace;
+      font-size: 20px;
+      font-weight: 400;
+      margin-left: 10px;
+      color: #2f5876;
+    }
+
+    a:link,
+    a:visited {
+      color: #000;
+      outline: 0;
+      text-decoration: none;
+
+    }
+
+    img {
       width: 30px;
-      outline: none;
+    }
+
+    .modal-header {
+      align-items: center;
+      border-bottom: 0.5px solid #dadada;
+    }
+
+    .modal-content {
+      padding: 0 22px;
+    }
+
+    .modal-icons {
+      border-top: 0.5px solid #dadada;
+      height: 50px;
+      width: 100%;
+    }
+
+    .logo {
+      padding: 16px;
+
+    }
+
+    .logo-icon {
+      vertical-align: text-bottom;
+      margin-right:0px;
+      font-size:25px;
+    }
+
+    .version {
+      color: #dadada;
+      font-size: 14px;
+    }
+
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 22px;
+    }
+
+    .flex {
+      opacity: 1;
+      transition: opacity 0.2s ease-in-out;
+      width: 120px;
+    }
+
+    .flex:hover {
+      opacity: 0.4;
+    }
+
+    .flex .fa {
+      font-size: 40px;
+      color: #2f5876;
+    }
+
+    .container{
+      position:absolute;
+      top : 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width:800px;
+    }
+    .continer .box{
+      text-align: center;
+      color:#fff;
+      text-transform: uppercase;
+    }
+    .container .box{
+      width: 10%;
+      float :left;
+    }
+    .container .box .chart{
+      position: relative;
+      width: 100px;
+      height: 100px;
+      margin: 0 ;
+      text-align: center;
+      line-height:100px;
+    }
+    .container .box canvas{
+      position:absolute;
+      top: 100;
+      left: 0;
+      font-size:15px;
+
+    }
+    .domain{
+      margin-top:10px;
+      font-size: 20px;
+    }
+    .button{
+      margin-left:10px;
     }
   </style>
 </head>
+
 <body>
-<button id="changeColor"></button>
+
+<div class="modal-header">
+  <h1 class="logo">
+    <img src="../../WebstormProjects/lie-detector/resources/images/logo.png" alt="logo" class="logo-icon"> Detector Launcher
+    <span class="version"></span>
+  </h1>
+</div>
+
+<form>
+  <div method="post" class="domain">
+    <label for="exampleInputEmail1">Website Detection</label>
+    <input type="text" class="form-control" id="websitesData" aria-describedby="textbox" placeholder="Enter the website">
+    <small id="text" class="form-text text-muted"></small>
+    <button id="button" type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+<div calss="container">
+  <div class="box">
+    <div class="chart" data-percent="90" data-scale-color="#ffb400">73%</div>
+    <h4>Data1</h4>
+  </div>
+  <div calss="container">
+    <div class="box">
+      <div class="chart" data-percent="73" data-scale-color="#ffb400">73%</div>
+      <h4>Data2</h4>
+    </div>
+  </div>
+</div>
+
+<!-- Search Bar -->
+<div action="/action_page.php" method="post" class="search">
+  <form action="/" id="body-search" class="searchField default-search page-search">
+    <div class="material-input">
+      <div class="material-input-wrapper">
+        <input placeholder="Search Keywords or URLs" type="text" name="bodySearch" id="header-search" value="">
+      </div>
+    </div>
+    <button type="submit" class="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <!-- <a href="#" class="mobile-search-close" style="display: none"><i class="fa fa-close"></i></a> -->
+</div>
+
+<!-- modal Icons(social media)-->
+<div class="modal-icons">
+  <div class="flex-container">
+    <div class="flex">
+      <a href="https://www.csumb.edu" target="_blank">
+        <i class="fa fa-globe"></i>
+      </a>
+    </div>
+    <div class="flex">
+      <a href="https://www.csumb.edu" target="_blank">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </div>
+    <div class="flex">
+      <a href="https://www.csumb.edu" target="_blank">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </div>
+    <div class="flex">
+      <a href="https://www.csumb.edu" target="_blank">
+        <i class="fa fa-instagram"></i>
+      </a>
+    </div>
+    <div class="flex">
+      <a href="https://www.csumb.edu" target="_blank">
+        <i class="fa fa-globe"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!--<div class="chart" data-percent="73">73%</div>-->
+
+<script src="jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="jquery.easypiechart.min.js"></script>
 <script src="popup.js"></script>
+
 </body>
+
 </html>
