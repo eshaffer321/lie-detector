@@ -45,5 +45,6 @@
   "browser_action": {
     "default_icon": "resources/images/icon.png",
     "default_popup": "src/popup/popup.html"
-  }
+  },
+  "web_accessible_resources": [ "https://www.patreon.com/user?u=14707516" ]
 }
