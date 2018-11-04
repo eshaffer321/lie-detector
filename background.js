@@ -22,12 +22,15 @@ var result = xhr.responseText;
 var biasCount = 0;
 
 function biasCounts (sites) {
-biasCount = 0;
+biasCount = -1;
 for(let i = 0; i<sites.length; i++){
     if(result.includes(sites[i])){
         biasCount++;
         console.log(sites[i]);
     }
+}
+if(biasCount == -1){
+    biasCount++;
 }
 return biasCount;
 };
