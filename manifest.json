@@ -15,21 +15,21 @@
         "<all_urls>"
       ],
       "js": [
-        "content.js",
-        "jquery-3.3.1.min.js",
-        "js/bootstrap.min.js",
-        "jquery.easypiechart.min.js",
-        "popup.js"
+        "/src/content.js",
+        "/vendor/jquery/jquery-3.3.1.min.js",
+        "/vendor/bootstrap/bootstrap.min.js",
+        "/vendor/easypie/jquery.easypiechart.min.js",
+        "/src/popup/popup.js"
       ],
       "css": [
-        "css/bootstrap.min.css"
+        "vendor/bootstrap/bootstrap.min.css"
       ]
     }
   ],
   "background": {
     "scripts": [
-      "jquery-3.3.1.min.js",
-      "background.js"
+      "/vendor/jquery/jquery-3.3.1.min.js",
+      "src/background.js"
     ],
     "persistent": false
   },
@@ -42,7 +42,7 @@
     "http://ec2-34-201-117-49.compute-1.amazonaws.com"
   ],
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "resources/images/icon.png",
+    "default_popup": "src/popup/popup.html"
   }
 }
