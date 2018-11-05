@@ -6,9 +6,15 @@ body {
   min-width: 180px;
 }
 
-img {
-  width: 40px;
-  height: 40px;
+#snopes {
+  width: 60px;
+  height: 45px;
+}
+
+#snopes:hover {
+  transform: translateY(-2px);
+  box-shadow: 10px 10px 8px #888888;
+  transition: all ease-in 0.3s;
 }
 
 h1 {
@@ -19,15 +25,17 @@ h1 {
   text-align: center;
 }
 
-.align-left: {
+.align-left {
   text-align: left;
 }
 
 #pat {
+  width: 40px;
+  height: 40px;
   transition: all ease-in 0.3s;
 }
 
-
 #pat:hover {
   transform: translateY(-2px);
+  box-shadow: 10px 10px 8px #888888;
 }

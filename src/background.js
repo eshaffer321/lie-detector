@@ -48,7 +48,7 @@ var result = xhr.responseText;
 
 
 function emotiveLanguage(ratio) {
-    return 50 * (1 - ((ratio - .01) / .01));
+    return 99 * (1 - ((ratio - .01) / .01));
 }
 
 var biasCount = 0;
@@ -56,12 +56,13 @@ var biasCount = 0;
 function biasCounts(sites) {
     biasCount = -1;
     for (let i = 0; i < sites.length; i++) {
-        if (result.includes(sites[i]) && sites[i] != "www.bbc.com") {
+        if (result.includes(sites[i])) {
             biasCount++;
+            console.log(sites[i]);
         }
     }
     if (biasCount > -1) {
         return 0;
     }
-    return 50;
+    return 1;
 }

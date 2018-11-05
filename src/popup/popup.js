@@ -46,6 +46,7 @@ $(function () {
 });
 
 $(document).ready(function () {
+
     console.log('ready');
     var link = document.getElementById("pat");
     link.addEventListener("click", function () {
@@ -55,4 +56,18 @@ $(document).ready(function () {
             });
         });
     }, false);
+
+    var link2 = document.getElementById("snopes");
+    link2.addEventListener("click", function () {
+        chrome.tabs.getSelected(null, function (tab) {
+            chrome.tabs.update(tab.id, { url: 'https://www.snopes.com/' }, function () {
+
+            });
+        });
+    }, false);
+
+    window.addEventListener('resize', (e) => {
+        console.log(e);
+        $('.main-container').addClass('animated fadeIn');
+    });
 });
