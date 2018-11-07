@@ -24,11 +24,17 @@ In order to run this extension the companion [node.js server](https://github.com
 ###Info Wars
 <p align="center">
   <img src="/resources/images/readme/infowars.png"/>
+
+
+<p align="center">
+  <img src="./resources/images/readme/info-1.png"/>
 </p>
-![Alt text](./resources/images/readme/info-1.png "Optional Title")
 
 
 ####Scientific American
 <p align="center">
   <img src="./resources/images/readme/sci-america.png"/>
+</p>
+<p align="center">
+  <img src="./resources/images/readme/sci-1.png"/>
 </p>
