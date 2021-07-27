@@ -1,7 +1,7 @@
 # lie-detector
 ## Summary
 Chrome extension to inform users about the reliability and credibility of news articles. Lie-detector will
-analyze all the links and sources of any webpage, and compare them to [OpenSources](http://www.opensources.co/), a 
+analyze all the links and sources of any webpage, and compare them to [OpenSources](https://github.com/OpenSourcesGroup/opensources), a 
 professionally curated lists of online sources. Second, the article's text will be extracted and sent through 
 [Google's natural language API](https://cloud.google.com/natural-language/) to analyze the sentiment of an article. 
 This search for emotive or biased language. Using both of these sources, a trust score will be displayed in the extension.
