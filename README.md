@@ -1,4 +1,39 @@
 # lie-detector
+# Lie-Detector 🛑 Project Sunset Notice (May 2025)
+
+This project has been **officially sunset** and is no longer maintained.  
+It remains public as a historical reference to my **1st Place project at the Monterey Bay Hackathon 2018**.
+
+---
+
+## 🏆 What It Was
+
+Lie-Detector was a Chrome extension that:
+- Scanned news articles for credibility signals.
+- Cross-referenced links against OpenSources.
+- Analyzed sentiment using Google's NLP API.
+- Displayed a "trust score" in the browser.
+
+---
+
+## 🛠️ Key Technologies
+- Chrome Extension APIs
+- Node.js companion server
+- Google Cloud Natural Language API
+
+---
+
+## 🏅 Award
+- **1st Place, Monterey Bay Hackathon 2018**
+
+---
+
+## ⚠️ Status
+This project is **no longer maintained**.  
+It remains archived as a portfolio artifact.
+
+> Shipped. Learned. Moving on.
+
 ## Summary
 Chrome extension to inform users about the reliability and credibility of news articles. Lie-detector will
 analyze all the links and sources of any webpage, and compare them to [OpenSources](https://github.com/OpenSourcesGroup/opensources), a 
